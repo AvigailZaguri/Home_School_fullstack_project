@@ -1,3 +1,5 @@
+-- create database school;
+
 create table class(
     name_ VARCHAR(10) PRIMARY KEY
 );
@@ -15,15 +17,13 @@ create table teacher(
     email VARCHAR(35),
     phone VARCHAR(10)
 );
-
 create table subject_(
-    id SMALLINT PRIMARY KEY,
+    id SMALLINT PRIMARY KEY AUTO_INCREMENT,
     teacher VARCHAR(25),
     name_ VARCHAR(15),
-    zoom_link VARCHAR(50),
+    zoom_link VARCHAR(100),
     FOREIGN KEY (teacher) REFERENCES teacher(name_)
 );
-
 create table week_schedule(
     class VARCHAR(10),
     day_ TINYINT,
@@ -33,9 +33,8 @@ create table week_schedule(
     FOREIGN KEY (subject_id) REFERENCES subject_(id),
     FOREIGN KEY (class) REFERENCES class(name_)
 );
-
 create table lesson(
-    id VARCHAR(15) PRIMARY KEY,
+    id SMALLINT PRIMARY KEY AUTO_INCREMENT,
     class VARCHAR(10),
     day_ TINYINT,
     hour TIME,
