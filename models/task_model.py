@@ -1,5 +1,5 @@
 
-
+from models.config import connection
 # import pymysql
 #
 # connection = pymysql.connect(
