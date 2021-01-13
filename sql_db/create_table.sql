@@ -1,9 +1,8 @@
--- create database school;
 
+-- use school;
 create table class(
     name_ VARCHAR(10) PRIMARY KEY
 );
-
 create table student(
     name_ VARCHAR(25) PRIMARY KEY,
     class VARCHAR(10),
@@ -11,7 +10,6 @@ create table student(
     phone VARCHAR(10),
     FOREIGN KEY (class) REFERENCES class(name_)
 );
-
 create table teacher(
     name_ VARCHAR(25) PRIMARY KEY,
     email VARCHAR(35),
@@ -33,13 +31,18 @@ create table week_schedule(
     FOREIGN KEY (subject_id) REFERENCES subject_(id),
     FOREIGN KEY (class) REFERENCES class(name_)
 );
-create table lesson(
+create table task(
     id SMALLINT PRIMARY KEY AUTO_INCREMENT,
     class VARCHAR(10),
     day_ TINYINT,
     hour TIME,
     date_ DATETIME,
-    descr VARCHAR(50),
     homework VARCHAR(100),
     FOREIGN KEY (class, day_, hour) REFERENCES week_schedule(class, day_, hour)
+);
+create table student_task(
+    name_ VARCHAR(25) PRIMARY KEY,
+    task_id SMALLINT,
+    FOREIGN KEY (name_) REFERENCES student(name_),
+    FOREIGN KEY (task_id) REFERENCES task(id)
 );

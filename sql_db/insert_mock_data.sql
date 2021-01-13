@@ -49,3 +49,6 @@ VALUES
 ('first', 5, '11:00:00',4),
 ('first', 6, '09:00:00',3),
 ('first', 6, '10:00:00',1)
+insert into week_schedule
+VALUES
+('first', 3, '12:00',5)
