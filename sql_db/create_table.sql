@@ -43,8 +43,8 @@ create table task(
 create table student_task(
     name_ VARCHAR(25),
     task_id SMALLINT,
-    is_done boolean,
-    PRIMARY KEY(name_, task_id)
+    is_done boolean  default 0,
+    PRIMARY KEY(name_, task_id),
     FOREIGN KEY (name_) REFERENCES student(name_),
     FOREIGN KEY (task_id) REFERENCES task(id)
 );
