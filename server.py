@@ -1,5 +1,7 @@
-from flask import Flask , render_template
+from flask import Flask, render_template, request
 from models import scholuder_model
+from models import task_model
+
 import datetime
 app = Flask(__name__, static_url_path='', static_folder='static-art', template_folder='template-art')
 
@@ -34,9 +36,23 @@ def contacts():
 def home():
     return render_template('index.html')
 
+
 @app.route('/gallery.html')
 def gallery():
-    return render_template('gallery.html')
+    tasks = task_model.get_student_tasks_by_name('Shira Levi')
+    return render_template('gallery.html', tasks=tasks)
+    # return render_template('gallery.html')
+
+
+@app.route('/check')
+def check():
+    is_done = request.args.get("done")
+    task_id = request.args.get("task_id")
+    if is_done == 'on':  # mean false
+        task_model.update_student_task_is_done(task_id, 0)
+    else:  # mean true
+        task_model.update_student_task_is_done(task_id, 1)
+    return gallery()
 
 
 if __name__ == '__main__':

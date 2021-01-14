@@ -82,15 +82,36 @@ $(document)
             <h2 class="clr-6 p4">Your Tasks:</h2>
             <div class="pag">
               <div class="img-pags">
+<!--                  -->
                 <ul>
-                  <li><a href="#"><span><img src="images/gallery-1.jpg" alt="" class="img-border"> <strong class="text-2">Jennifer, 10 years</strong></span></a></li>
-                  <li><a href="#"><span><img src="images/gallery-2.jpg" alt="" class="img-border"> <strong class="text-2">Sebastian, 14 years</strong></span></a></li>
-                  <li><a href="#"><span><img src="images/gallery-3.jpg" alt="" class="img-border"> <strong class="text-2">Peter, 9 years</strong></span></a></li>
-                  <li><a href="#"><span><img src="images/gallery-4.jpg" alt="" class="img-border"> <strong class="text-2">Samuel, 15 years</strong></span></a></li>
-                  <li><a href="#"><span><img src="images/gallery-5.jpg" alt="" class="img-border"> <strong class="text-2">Martin, 13 years</strong></span></a></li>
-                  <li><a href="#"><span><img src="images/gallery-6.jpg" alt="" class="img-border"> <strong class="text-2">Fiona, 8 years</strong></span></a></li>
-                  <li><a href="#"><span><img src="images/gallery-7.jpg" alt="" class="img-border"> <strong class="text-2">Monica, 7 years</strong></span></a></li>
-                  <li><a href="#"><span><img src="images/gallery-8.jpg" alt="" class="img-border"> <strong class="text-2">Fiona, 8 years</strong></span></a></li>
+                  {%for task in tasks%}
+                  <li style="display:inline-block">
+                    <div style="width:93%; height:72%; text-align:center" class="img-border">
+                      <br>
+                      <br>
+                      <div style="padding-left:8%; padding-right:8%; font-size: 21px; color: blueviolet;">
+                      {{task.homework}}<br>
+                      </div>
+                       <form action="/check" method="get">
+                          <input style="position: absolute; top: 18px; right: 19px; width: 25px; height: 25px;"
+                                 type="checkbox" id="done" name="done" onclick="done_clicked()">
+                         <input type="text" name="task_id" hidden value={{task.id}}>
+<!--                          <label for="done">Is Done?</label><br>-->
+                          <input id="done_submit" type="submit" value="submit" hidden/>
+                      </form>
+
+                    </div>
+                     <div class="text-2" style="text-align:center; color:black"> <b>{{task.date_}}</b> </div>
+                  </li>
+
+                {%endfor%}
+<!--                  <li><a href="#"><span><img src="images/gallery-2.jpg" alt="" class="img-border"> <strong class="text-2">Sebastian, 14 years</strong></span></a></li>-->
+<!--                  <li><a href="#"><span><img src="images/gallery-3.jpg" alt="" class="img-border"> <strong class="text-2">Peter, 9 years</strong></span></a></li>-->
+<!--                  <li><a href="#"><span><img src="images/gallery-4.jpg" alt="" class="img-border"> <strong class="text-2">Samuel, 15 years</strong></span></a></li>-->
+<!--                  <li><a href="#"><span><img src="images/gallery-5.jpg" alt="" class="img-border"> <strong class="text-2">Martin, 13 years</strong></span></a></li>-->
+<!--                  <li><a href="#"><span><img src="images/gallery-6.jpg" alt="" class="img-border"> <strong class="text-2">Fiona, 8 years</strong></span></a></li>-->
+<!--                  <li><a href="#"><span><img src="images/gallery-7.jpg" alt="" class="img-border"> <strong class="text-2">Monica, 7 years</strong></span></a></li>-->
+<!--                  <li><a href="#"><span><img src="images/gallery-8.jpg" alt="" class="img-border"> <strong class="text-2">Fiona, 8 years</strong></span></a></li>-->
                 </ul>
               </div>
             </div>
@@ -110,3 +131,27 @@ $(document)
 </div>
 </body>
 </html>
+
+<script>
+
+function done_clicked(){
+  $("#done_submit").click();
+}
+<!--$( document ).ready(function() {-->
+<!--    document.getElementById("xxx").addEventListener('click',-->
+<!--    function () {-->
+<!--      console.log("button clicked")-->
+<!--    });-->
+<!--});-->
+
+function done_change(){
+  console.log('hiiiiiiiii');
+  var checkBox = document.getElementById("xxx");
+ if (checkBox.checked == true){
+  console.log('yess');
+<!--  checkBox.setAttribute("checked", "checked");-->
+  } else {
+  console.log('nooo');
+  }
+}
+</script>

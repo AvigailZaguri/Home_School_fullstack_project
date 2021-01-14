@@ -52,3 +52,29 @@ VALUES
 insert into week_schedule
 VALUES
 ('first', 3, '12:00',5)
+
+
+insert into task
+values
+(null,'first',3,'09:00:00','2021-01-12', 'Solve all the exercises on pages: 22-27.'),
+(null,'first',3,'10:00:00','2021-01-12', 'Complete all sentences on pages: 12-16.'),
+(null,'first',3,'11:00:00','2021-01-12', 'Answer to the questions on the book page 5.'),
+(null,'first',4,'09:00:00','2021-01-13', 'Start studying to the test.'),
+(null,'first',4,'10:00:00','2021-01-13', 'Complete all sentences on pages: 10-14.'),
+(null,'first',4,'12:00:00','2021-01-13', 'Solve all the exercises on pages: 20-25.')
+
+insert into student_task
+(name_,task_id)
+values
+('Shira Levi',1),
+('Shira Levi',2),
+('Shira Levi',3),
+('Shira Levi',4),
+('Shira Levi',5),
+('Shira Levi',6),
+('Leah Gad',1),
+('Leah Gad',2),
+('Leah Gad',3),
+('Leah Gad',4),
+('Leah Gad',5),
+('Leah Gad',6)
