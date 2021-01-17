@@ -69,21 +69,21 @@ $(document)
       <div class="grid_8">
         <div class="block-1 top-5">
           <div class="block-1-shadow">
-            <h2 class="clr-6 p6">Schedule</h2>
+            <h2 class="clr-6 p6">Schedule - {{student_class}} grade:</h2>
             <table class="table">
               <tr>
-                <th>Sunday</th>
-                <th>Monday</th>
-                <th>Tusday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th class="last">Friday</th>
+                <th style="font-size: 150%;" >Sunday</th>
+                <th style="font-size: 150%;" >Monday</th>
+                <th style="font-size: 150%;" >Tusday</th>
+                <th style="font-size: 150%;" >Wednesday</th>
+                <th style="font-size: 150%;" >Thursday</th>
+                <th style="font-size: 150%;" class="last">Friday</th>
               </tr>
               {% for i in range(6) %}
               <tr>
               {% for day in week_schedule %}
                 {% if i < day|length %}
-                  <td><span>{{day[i]['hour']}}</span><span class="clr-4"></span>{{day[i]['teacher']}}</span><span><button><a target="_blank" rel="noopener noreferrer" href={{day[i]['zoom_link']}} class="link_3">{{day[i]['name_']}}</a></button></span></span></td>
+                  <td><span style="font-size: 150%;"> {{day[i]['hour']}}</span><span style="font-size: 130%;" >{{day[i]['teacher']}}</span><span><button><a target="_blank" rel="noopener noreferrer" href={{day[i]['zoom_link']}} class="link_3">{{day[i]['name_']}}</a></button></span></span></td>
                 {%else%}
                 <td><span></span><span class="clr-4"></span><span></span></td>
                 {%endif%}
@@ -96,15 +96,15 @@ $(document)
             <div class="wrap">
               <div class="box-2">
                 <div class="p4">
-                  <p><strong>{{date}}</strong></p>
+                  <p style="font-size: 150%;"><strong>{{date}}</strong></p>
                   {% for lesson in week_schedule[day]%}
                   {%if lesson['hour'].seconds/(60*60) > hour %}
-                  <p>{{lesson['hour']}} {{lesson['teacher']}} <button><a target="_blank" rel="noopener noreferrer" href={{lesson['zoom_link']}} class="link_3">{{lesson['name_']}}</a></button></p>
+                  <p style="font-size: 130%;">{{lesson['hour']}} {{lesson['teacher']}} <button><a target="_blank" rel="noopener noreferrer" href={{lesson['zoom_link']}} class="link_3">{{lesson['name_']}}</a></button></p>
                   {%endif%}
                   {%endfor%}
-                  {%if week_schedule[day][week_schedule[day]|length - 1]['hour'].seconds/(60*60) < hour%}
-                  <p>The school day is over, good job!</p>
-                  <p>Now is the time to check out your <a href="gallery.html" class="link_3">tasks</a>.</p>
+                  {%if week_schedule[day]|length == 0 or  week_schedule[day][week_schedule[day]|length - 1]['hour'].seconds/(60*60) < hour%}
+                  <p style="font-size: 130%;">The school day is over, good job!</p>
+                  <p style="font-size: 130%;">Now is the time to check out your <button><a href="gallery.html" class="link_3">task</a></button>.</p>
                   {%endif%}
                 </div>
               </div>

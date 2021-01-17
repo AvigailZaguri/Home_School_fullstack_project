@@ -1,25 +1,5 @@
-
 from models.config import connection
 from datetime import date, timedelta
-
-
-
-# import pymysql
-#
-# connection = pymysql.connect(
-#    host="localhost",
-#    user="root",
-#    password="Az97185Az!",
-#    db="school",
-#    charset="utf8",
-#    cursorclass=pymysql.cursors.DictCursor
-# )
-#
-# if connection.open:
-#     print("the connection is opened")
-#
-
-
 
 
 def get_student_tasks_by_name(name):
@@ -42,11 +22,10 @@ def get_student_tasks_by_name(name):
 
 
 # change name to get from cookie
-def update_student_task_is_done(task_id, is_done):
+def update_student_task_is_done(task_id, is_done, username):
     with connection.cursor() as cursor:
         query = "update student_task " \
                 "set student_task.is_done = {} " \
-                "where student_task.task_id = {} and student_task.name_ = 'Shira Levi' ".format(is_done, task_id)
+                "where student_task.task_id = {} and student_task.name_ = '{}' ".format(is_done, task_id,username)
         cursor.execute(query)
         connection.commit()
-

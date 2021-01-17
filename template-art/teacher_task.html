@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Home School | Contacts</title>
+<title>Home School | New Task</title>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
 <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
@@ -55,10 +55,9 @@ $(document)
         <a href="#" class="prev"></a><a href="#" class="next"></a> </div>
       <ul class="menu">
         <li><a href="index.html" class="clr-1">Home</a></li>
-        <li><a href="about.html" class="clr-2">Free Time</a></li>
-        <li><a href="schedule.html" class="clr-3">Schedule</a></li>
-        <li><a href="gallery.html" class="clr-4">Tasks</a></li>
-        <li class="current"><a href="contacts.html" class="clr-5">Contacts</a></li>
+        <li><a href="#" class="clr-2">Task</a></li>
+        <li><a href="teacher_fun_task.html" class="clr-3">Fun Task</a></li>
+        <li><a href="teacher_schedule.html" class="clr-4">Lesson</a></li>
       </ul>
     </nav>
   </header>
@@ -68,22 +67,28 @@ $(document)
       <div class="grid_8">
         <div class="block-1 top-5">
           <div class="block-1-shadow">
-            <h2 class="clr-6">Contact Form</h2>
-            <form id="form" method="post" action="#">
+            <h2 class="clr-6">Upload Task</h2>
+            <form id="form" method="POST" action="#">
               <fieldset>
-                <label><strong>Teacher:</strong>
-                  <input type="text" value="" name="teacher_name">
+                <label><strong>Class:</strong>
+                  <input type="text" name="grade">
+                  <strong class="clear"></strong></label>
+                <label><strong>Date:</strong>
+                  <input type="text" name="date">
+                  <strong class="clear"></strong></label>
+                <label><strong>Hour:</strong>
+                  <input type="text" name="hour">
                   <strong class="clear"></strong></label>
                 <label><strong>Subject:</strong>
-                  <input type="text" value="" name="subject">
+                  <input type="text" name="subject">
                   <strong class="clear"></strong></label>
-                <label><strong>Message:</strong>
-                  <input type="text" value="" name="msg">
+                <label><strong>Homework: </strong>
+                  <input type="text" name="descr">
                   <strong class="clear"></strong></label>
                 <strong class="clear"></strong>
                 <div class="btns pad-2">
-                  <button class="link-2" style="height: 40px;"><input class="btn btn-default" type="submit" value="Send" style="
-                    font-size: smaller;height: 34px;font-family: 'Cabin Sketch';"></button>
+                  <button class="link-2" style="height: 40px;"><input class="btn btn-default" type="submit" value="Create" style="
+                   font-size: smaller;height: 34px;font-family: 'Cabin Sketch';"></button>
                 </div>
               </fieldset>
             </form>
@@ -91,8 +96,7 @@ $(document)
         </div>
         <!--==============================footer=================================-->
         <footer>
-          <p>© 2012 Art School</p>
-          <p>Website Template by <a target="_blank" href="http://www.templatemonster.com/" class="link">TemplateMonster.com</a></p>
+          <p>© Home School</p>
         </footer>
       </div>
       <div class="clear"></div>

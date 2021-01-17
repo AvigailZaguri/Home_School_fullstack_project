@@ -15,9 +15,31 @@ def get_week_schedule_by_class(grade):
     return res
 
 def get_class_by_student(student_name):
-     with connection.cursor() as cursor:
+    with connection.cursor() as cursor:
         query = f"select class from student where name_ = '{student_name}';"
         cursor.execute(query)
         res = cursor.fetchone()
         return res['class']
-print(get_week_schedule_by_class('first'))
+
+
+def get_key_subject_by_name(subject):
+    with connection.cursor() as cursor:
+        query = f"select id from subject_ where name_ = '{subject}';"
+        cursor.execute(query)
+        res = cursor.fetchall()
+        return res[0]['id']
+
+
+def insert_lesson_to_schedule(grade, day, hour, subject, zoom_link=None):
+    with connection.cursor() as cursor:
+
+        subject_key = get_key_subject_by_name(subject)
+        print(subject_key)
+        query = f"insert into week_schedule values ('{grade}', {day}, '{hour}', {subject_key});"
+        print(query)
+        cursor.execute(query)
+        connection.commit()
+
+# insert_lesson_to_schedule("first", 1, '17:00:00', 'Math')
+
+# print(get_week_schedule_by_class('first'))

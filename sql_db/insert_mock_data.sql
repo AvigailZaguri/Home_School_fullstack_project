@@ -53,28 +53,13 @@ insert into week_schedule
 VALUES
 ('first', 3, '12:00',5)
 
+insert into fun_task
+VALUES
+('first', 'My best friend #1 story', 'https://www.adamtsair.co.il/%d7%94%d7%97%d7%91%d7%a8-%d7%94%d7%9b%d7%99-%d7%98%d7%95%d7%91-%d7%a9%d7%9c%d7%99-%d7%a4%d7%a8%d7%a7-1/'),
+('first', 'My best friend #2 story', 'https://www.adamtsair.co.il/%d7%94%d7%97%d7%91%d7%a8-%d7%94%d7%9b%d7%99-%d7%98%d7%95%d7%91-%d7%a9%d7%9c%d7%99-%d7%a4%d7%a8%d7%a7-2/'),
+('first','Treasure hunt', 'https://www.adamtsair.co.il/%d7%97%d7%a4%d7%a9-%d7%90%d7%aa-%d7%94%d7%9e%d7%98%d7%9e%d7%95%d7%9f/'),
+('first', 'Learn clock video (English)', 'https://www.youtube.com/watch?v=EIxaxnageTo')
+
 
 insert into task
-values
-(null,'first',3,'09:00:00','2021-01-12', 'Solve all the exercises on pages: 22-27.'),
-(null,'first',3,'10:00:00','2021-01-12', 'Complete all sentences on pages: 12-16.'),
-(null,'first',3,'11:00:00','2021-01-12', 'Answer to the questions on the book page 5.'),
-(null,'first',4,'09:00:00','2021-01-13', 'Start studying to the test.'),
-(null,'first',4,'10:00:00','2021-01-13', 'Complete all sentences on pages: 10-14.'),
-(null,'first',4,'12:00:00','2021-01-13', 'Solve all the exercises on pages: 20-25.')
-
-insert into student_task
-(name_,task_id)
-values
-('Shira Levi',1),
-('Shira Levi',2),
-('Shira Levi',3),
-('Shira Levi',4),
-('Shira Levi',5),
-('Shira Levi',6),
-('Leah Gad',1),
-('Leah Gad',2),
-('Leah Gad',3),
-('Leah Gad',4),
-('Leah Gad',5),
-('Leah Gad',6)
+values(null,'first',3,'09:00:00','2021-01-12', 'Solve all the exercises on pages: 22-27.');

@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Home School | About</title>
+<title>Home School | Gallery</title>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
 <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
 <link rel="stylesheet" type="text/css" media="screen" href="css/grid_12.css">
-<link rel="stylesheet" type="text/css" media="screen" href="css/slider.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/demo.css">
 <link href='http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700' rel='stylesheet' type='text/css'>
 <script src="js/jquery-1.7.min.js"></script>
 <script src="js/jquery.easing.1.3.js"></script>
+<script src="js/uCarousel.js"></script>
 <script src="js/tms-0.4.1.js"></script>
 <script>
 $(document)
     .ready(function () {
-    $('.slider')
+    $('.gallery')
         ._TMS({
         show: 0,
         pauseOnHover: true,
         prevBu: '.prev',
         nextBu: '.next',
-        playBu: false,
-        duration: 800,
+        playBu: '.play',
+        duration: 700,
         preset: 'fade',
-        pagination: true,
+        pagination: $('.img-pags')
+            .uCarousel({
+            show: 2,
+            shift: 0,
+            rows: 4
+        }),
         pagNums: false,
         slideshow: 7000,
-        numStatus: false,
+        numStatus: true,
         banners: false,
         waitBannerAnimation: false,
         progressBar: false
     })
-});
+})
 </script>
 <!--[if lt IE 9]>
 <script src="js/html5.js"></script>
@@ -45,19 +51,24 @@ $(document)
     <h1><a href="index.html"></a></h1>
     <nav>
       <div id="slide">
-        <div class="slider">
+        <div class="gallery">
           <ul class="items">
-            <li><img src="images/slider-1.jpg" alt=""></li>
-            <li><img src="images/slider-2.jpg" alt=""></li>
-            <li><img src="images/slider-3.jpg" alt=""></li>
+            <li><img src="images/gallery-big-1.jpg" alt=""></li>
+            <li><img src="images/gallery-big-2.jpg" alt=""></li>
+            <li><img src="images/gallery-big-3.jpg" alt=""></li>
+            <li><img src="images/gallery-big-4.jpg" alt=""></li>
+            <li><img src="images/gallery-big-5.jpg" alt=""></li>
+            <li><img src="images/gallery-big-6.jpg" alt=""></li>
+            <li><img src="images/gallery-big-7.jpg" alt=""></li>
+            <li><img src="images/gallery-big-8.jpg" alt=""></li>
           </ul>
         </div>
         <a href="#" class="prev"></a><a href="#" class="next"></a> </div>
       <ul class="menu">
         <li><a href="index.html" class="clr-1">Home</a></li>
-        <li class="current"><a href="about.html" class="clr-2">Free Time</a></li>
+        <li><a href="about.html" class="clr-2">Free Time</a></li>
         <li><a href="schedule.html" class="clr-3">Schedule</a></li>
-        <li><a href="gallery.html" class="clr-4">Tasks</a></li>
+        <li class="current"><a href="gallery.html" class="clr-4">Tasks</a></li>
         <li><a href="contacts.html" class="clr-5">Contacts</a></li>
       </ul>
     </nav>
@@ -68,38 +79,32 @@ $(document)
       <div class="grid_8">
         <div class="block-1 top-5">
           <div class="block-1-shadow">
-            <h2 class="clr-6 p6">Fun Tasks</h2>
-            <p class="clr-6"><strong>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor </strong></p>
-            <p class="clr-6">Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et acam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est lorem ipsum dolor sit amet.</p>
-            <div class="pad-3"> <img src="images/page2-img1.jpg" alt="" class="img-border img-indent">
-              <div class="extra-wrap clr-6">
-                <p><strong>Lorem ipsum dolor sit amet, consetetur</strong></p>
-                <p>sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+            <h2 class="clr-6 p4">Fun Tasks - {{student_class}} grade:</h2>
+            <div class="pag">
+              <div class="img-pags">
+                <div>
+                <ul>
+                  {%for task in fun_tasks_1%}
+                  <li style="display: inline-block;"><a target="_blank" rel="noopener noreferrer" href={{task['link']}}>
+                    <span><img src="images/gallery-1.jpg" alt="" class="img-border"> <strong class="link_3" font-size: x-large;>{{task['descr']}}</strong></span></a>
+                  </li>
+                  {%endfor%}
+                  {%for task in fun_tasks_2%}
+                  <li style="display: inline-block;"><a target="_blank" rel="noopener noreferrer" href={{task['link']}}>
+                    <span><img src="images/gallery-2.jpg" alt="" class="img-border"> <strong class="link_3" font-size: x-large;>{{task['descr']}}</strong></span></a>
+                  </li>
+                  {%endfor%}
+                  </ul>
+                </div>
               </div>
             </div>
-            <h2 class="clr-6 p6">Stories</h2>
-            <p class="clr-6"><strong>8 short and nice stories</strong></p>
-            <p class="clr-6">Click on the name of the story you like, and read for your enjoyment. Every week the stories are updates.</p>
-            <div class="lists">
-              <ul class="list-2">
-                <li><a href="https://www.adamtsair.co.il/%d7%a1%d7%99%d7%a4%d7%95%d7%a8-%d7%9c%d7%a9%d7%91%d7%95%d7%a2%d7%95%d7%aa-%d7%9c%d7%99%d7%9c%d7%93%d7%99%d7%9d-%d7%a9%d7%a0%d7%99-%d7%90%d7%97%d7%99%d7%9d/">Tow brothers</a></li>
-                <li><a href="https://www.adamtsair.co.il/%d7%94%d7%97%d7%91%d7%a8-%d7%94%d7%9b%d7%99-%d7%98%d7%95%d7%91-%d7%a9%d7%9c%d7%99-%d7%a4%d7%a8%d7%a7-1/">My best friend #1</a></li>
-                <li><a href="https://www.adamtsair.co.il/%d7%94%d7%97%d7%91%d7%a8-%d7%94%d7%9b%d7%99-%d7%98%d7%95%d7%91-%d7%a9%d7%9c%d7%99-%d7%a4%d7%a8%d7%a7-2/">My best friend #2</a></li>
-                <li><a href="https://www.adamtsair.co.il/%d7%97%d7%a4%d7%a9-%d7%90%d7%aa-%d7%94%d7%9e%d7%98%d7%9e%d7%95%d7%9f/">Treasure hunt</a></li>
-              </ul>
-              <ul class="list-2 last">
-                <li><a href="https://www.adamtsair.co.il/%d7%a2%d7%95%d7%92%d7%99%d7%95%d7%aa/">The cookies</a></li>
-                <li><a href="https://www.adamtsair.co.il/%d7%94%d7%90%d7%9c%d7%95%d7%a3/">The champion</a></li>
-                <li><a href="https://www.adamtsair.co.il/%d7%a0%d7%94%d7%a8-%d7%94%d7%a9%d7%95%d7%a7%d7%95%d7%9c%d7%93/">The chocolate river</a></li>
-                <li><a href="https://www.adamtsair.co.il/%d7%9b%d7%93%d7%95%d7%a8-%d7%94%d7%a9%d7%9c%d7%92/">The snowball</a></li>
-              </ul>
-            </div>
-            <div class="pad-2"> <a href="https://www.adamtsair.co.il/%D7%A1%D7%99%D7%A4%D7%95%D7%A8%D7%99%D7%9D-%D7%9C%D7%99%D7%9C%D7%93%D7%99%D7%9D/" class="link-2">Read More</a> </div>
+            <div class="clear"></div>
+            <div class="pad-2"> <a href="#" class="link-2">Enjoy!</a> </div>
           </div>
         </div>
         <!--==============================footer=================================-->
         <footer>
-          <p>© home School</p>
+          <p>© home school</p>
         </footer>
       </div>
       <div class="clear"></div>
